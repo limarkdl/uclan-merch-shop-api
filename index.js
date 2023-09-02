@@ -1,8 +1,9 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+
 import authRouter from './authRouter.js';
 
-import dotenv from 'dotenv';
 dotenv.config();
 
 

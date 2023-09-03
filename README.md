@@ -13,7 +13,7 @@ This API is for a UCLan merch shop and is built with Node.js, MongoDB, Express, 
 
 `https://github.com/limarkdl/uclan-merch-shop-api`
 
-# Built with
+# Dependencies
 
 - `Node.js`
 - `MongoDB`
@@ -21,6 +21,10 @@ This API is for a UCLan merch shop and is built with Node.js, MongoDB, Express, 
 - `Mongoose`
 - `JsonWebToken`
 - `DotEnv`
+- `ESLint`
+- `Nodemon`
+- `Bcrypt`
+- `Cors`
 
 # Endpoints
 

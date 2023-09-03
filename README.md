@@ -1,42 +1,117 @@
-# UCLAN Merch Shop API
+# UCLan Merch Shop API
+# Author
 
-This is the API for the UCLAN Merch Shop built with Node.JS, Express, Mongoose(MongoDB) and JWT Authorization.
+Ivan Kostin, Year 3
 
-## Getting Started
+- `ID: 21078541`
 
-1. Clone this repository
-2. Run `npm install` to install all dependencies
-3. Run `npm start` to start the server
-4. The server will be running on `http://localhost:3000`
+# Description
 
-## API Endpoints
+This API is for a UCLan merch shop and is built with Node.js, MongoDB, Express, Mongoose, JsonWebToken, and DotEnv. It includes endpoints for User, Role, Product, Order, and Offer entities, with different permissions for each. The structure includes controllers, middleware, models, routes, and app.js.
 
-- `/users` - GET all users (ADMINS ONLY)
-- `/register` - POST registration (username, password, email)
-- `/login` - POST login (username, password)
+# Source links
 
-## Expected response
+`https://github.com/limarkdl/uclan-merch-shop-api`
 
-- `/users` - Plain data about users
-- `/register` - "User succesfully created" / Error
-- `/login` - Your JWT (lasts 1hr) / Error
+# Built with
 
-## Dependencies
+- `Node.js`
+- `MongoDB`
+- `Express`
+- `Mongoose`
+- `JsonWebToken`
+- `DotEnv`
 
-- Node.js
-- Express
-- express-validator
-- express-session
-- mongoose
-- bcryptjs
-- jsonwebtoken
-- nodemon
-- dotenv
+# Endpoints
 
-## Contributing
+- **User**
+    - **`POST /users/registration`**: Registers a new user.
+    - **`POST /users/login`**: Logs in a user.
+    - **`GET /users/me`**: Retrieves data of the current user.
+    - **`PUT /users/me`**: Updates data of the current user.
+    - **`DELETE /users/me`**: Deletes the current user.
+- **Role**
+    - **`POST /roles`**: Creates a new role (only for ADMIN).
+    - **`GET /roles`**: Retrieves all roles (only for ADMIN).
+    - **`PUT /roles/:id`**: Updates a role by ID (only for ADMIN).
+    - **`DELETE /roles/:id`**: Deletes a role by ID (only for ADMIN).
+- **Product**
+    - **`POST /products`**: Creates a new product (for authorized sellers and ADMIN).
+    - **`GET /products`**: Retrieves all products.
+    - **`GET /products/:id`**: Retrieves a product by ID.
+    - **`PUT /products/:id`**: Updates a product by ID (for authorized sellers and ADMIN).
+    - **`DELETE /products/:id`**: Deletes a product by ID (only for ADMIN).
+- **Order**
+    - **`POST /orders`**: Creates a new order (for authorized USER).
+    - **`GET /orders`**: Retrieves all orders (only for ADMIN).
+    - **`GET /orders/:id`**: Retrieves an order by ID (for authorized USER and ADMIN).
+    - **`PUT /orders/:id`**: Updates an order by ID (only for ADMIN).
+    - **`DELETE /orders/:id`**: Deletes an order by ID (only for ADMIN).
+- **Offer**
+    - **`POST /offers`**: Creates a new offer (for authorized sellers and ADMIN).
+    - **`GET /offers`**: Retrieves all offers.
+    - **`GET /offers/:id`**: Retrieves an offer by ID.
+    - **`PUT /offers/:id`**: Updates an offer by ID (for authorized sellers and ADMIN).
+    - **`DELETE /offers/:id`**: Deletes an offer by ID (only for ADMIN).
 
-1. Fork this repository
-2. Create a new branch (`git checkout -b new-feature`)
-3. Commit your changes (`git commit -am 'Add new feature'`)
-4. Push to the branch (`git push origin new-feature`)
-5. Create a new Pull Request
+## Entities
+
+- **User**
+    - `id: Int32`
+    - `username: String`
+    - `password (hashed): String`
+    - `email: String`
+    - `roles: Array`
+        - `0: String`
+        - `…`
+- **Role**
+    - `value: String`
+- **Product**
+    - `id: Int32`
+    - `name: String`
+    - `description: String`
+    - `price: Int32`
+    - `img: String`
+    - `inStock: Boolean`
+- **Order**
+    - `id: Int32`
+    - `user_id: Int32`
+    - `products: Array[]`
+        - `product: Product`
+        - `…`
+    - `time_created: TimeStamp`
+    - `summary: Double`
+- **Offer**
+    - `id: Int32`
+    - `name: String`
+    - `description: String`
+    - `time_created: TimeStamp`
+    - `time_until_valid: TimeStamp`
+
+## Structure
+
+- project-root
+    - src
+        - controllers
+            - userController.js
+            - roleController.js
+            - productController.js
+            - orderController.js
+            - offerController.js
+        - middleware
+            - authentication.js
+            - authorization.js
+        - models
+            - User.js
+            - Role.js
+            - Product.js
+            - Order.js
+            - Offer.js
+        - routes
+            - userRoutes.js
+            - roleRoutes.js
+            - productRoutes.js
+            - orderRoutes.js
+            - offerRoutes.js
+        - app.js
+    - package.json

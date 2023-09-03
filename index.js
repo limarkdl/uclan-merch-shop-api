@@ -31,12 +31,12 @@ app.use('/users', userRoutes);
 // app.use('/offers', offerRoutes);
 
 // Handle undefined routes
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).send('Sorry, that route doesn\'t exist.');
 });
 
 // Error-handling middleware
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });

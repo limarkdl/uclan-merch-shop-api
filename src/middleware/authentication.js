@@ -13,7 +13,7 @@ const authentication = async (req, res, next) => {
     const user = await User.findOne({_id: decoded.id});
 
     if (!user) {
-      throw new Error();
+      return res.status(401).send({error: 'Token expired'});
     }
 
     // Attach the user and token to the request object

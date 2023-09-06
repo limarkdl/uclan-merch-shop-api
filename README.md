@@ -28,30 +28,30 @@ This API is for a UCLan merch shop and is built with Node.js, MongoDB, Express, 
 
 # Endpoints
 
-- **User**
+- **User** (DONE!)
     - **`POST /users/registration`**: Registers a new user.
     - **`POST /users/login`**: Logs in a user.
     - **`GET /users/me`**: Retrieves data of the current user.
     - **`PUT /users/me`**: Updates data of the current user.
     - **`DELETE /users/me`**: Deletes the current user.
-- **Role**
+- **Role** (DONE!)
     - **`POST /roles`**: Creates a new role (only for ADMIN).
     - **`GET /roles`**: Retrieves all roles (only for ADMIN).
     - **`PUT /roles/:id`**: Updates a role by ID (only for ADMIN).
     - **`DELETE /roles/:id`**: Deletes a role by ID (only for ADMIN).
-- **Product**
+- **Product** (PENDING...)
     - **`POST /products`**: Creates a new product (for authorized sellers and ADMIN).
     - **`GET /products`**: Retrieves all products.
     - **`GET /products/:id`**: Retrieves a product by ID.
     - **`PUT /products/:id`**: Updates a product by ID (for authorized sellers and ADMIN).
     - **`DELETE /products/:id`**: Deletes a product by ID (only for ADMIN).
-- **Order**
+- **Order** (PENDING...)
     - **`POST /orders`**: Creates a new order (for authorized USER).
     - **`GET /orders`**: Retrieves all orders (only for ADMIN).
     - **`GET /orders/:id`**: Retrieves an order by ID (for authorized USER and ADMIN).
     - **`PUT /orders/:id`**: Updates an order by ID (only for ADMIN).
     - **`DELETE /orders/:id`**: Deletes an order by ID (only for ADMIN).
-- **Offer**
+- **Offer** (PENDING...)
     - **`POST /offers`**: Creates a new offer (for authorized sellers and ADMIN).
     - **`GET /offers`**: Retrieves all offers.
     - **`GET /offers/:id`**: Retrieves an offer by ID.
